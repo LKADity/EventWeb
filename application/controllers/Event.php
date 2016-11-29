@@ -53,12 +53,15 @@ class Event extends CI_Controller {
 				'ktp' => $this->input->post('ktp'),
 				'contact' => $this->input->post('contact'),
 				'address' => $this->input->post('address'),
-				'poss' => $this->input->post('address')
+				'poss' => $this->input->post('address'),
+				'role' => 'user'
 			);
 
 			$result = $this->user_model->registration($data);
 
 			if ($result) {
+				echo "Success";
+				die();
 				$data['message_display'] = 'Registration Success';
 				$this->load->view('login_form', $data);
 			}else {

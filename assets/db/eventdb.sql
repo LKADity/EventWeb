@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2016 at 11:54 AM
+-- Generation Time: Nov 29, 2016 at 01:00 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -35,7 +35,8 @@ CREATE TABLE `performer` (
   `pic3` varchar(255) NOT NULL,
   `pic4` varchar(255) NOT NULL,
   `title` varchar(50) NOT NULL,
-  `owner` int(11) NOT NULL
+  `owner` int(11) NOT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -50,7 +51,8 @@ CREATE TABLE `stand` (
   `desciption` text NOT NULL,
   `pic1` varchar(30) NOT NULL,
   `pic2` varchar(30) NOT NULL,
-  `owner` varchar(30) NOT NULL
+  `owner` varchar(30) NOT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

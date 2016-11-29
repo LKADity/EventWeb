@@ -9,6 +9,7 @@ class Event extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library(array('session', 'form_validation'));
 		$this->load->database();
+		$this->load->model('user_model');
 	}
 
 	public function index() {
@@ -55,7 +56,15 @@ class Event extends CI_Controller {
 				'poss' => $this->input->post('address')
 			);
 
-			
+			$result = $this->user_model->registration($data);
+
+			if ($result) {
+				$data['message_display'] = 'Registration Success';
+				$this->load->view('login_form', $data);
+			}else {
+				$data['message_display'] = 'Registration Failed';
+				$this->load->view('form_registration', $data);
+			}
 		}
 	}
 }

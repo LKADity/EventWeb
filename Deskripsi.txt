@@ -22,3 +22,31 @@ DATABASE
  - contact (varchar)
  - address (text)
  - poss (varchar)
+
+2. performer
+ - id (pk, AI, int)
+ - name (varchar)
+ - description (text)
+ - pic1 (varchar)
+ - pic2 (varchar)
+ - pic3 (varchar)
+ - pic4 (varchar)
+ - title (varchar)
+ - owner (fk, int)
+ - status (int)
+
+3. stand
+ - id (pk, AI, int)
+ - name (varchar)
+ - description (text)
+ - pic1 (varchar)
+ - pic2 (varchar)
+ - owner (fk, varchar)
+ - status (int)
+
+4. ticketing
+ - id (pk, AI, int)
+ - username
+ - status (int)
+ 
+ 

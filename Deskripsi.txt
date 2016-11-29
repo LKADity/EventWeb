@@ -1,0 +1,24 @@
+User
+-Registration : daftar akun
+-Login : beli tiket, daftar band, daftar stand
+-Subscribe email buat update info
+-Klik di google maps terus langsung ke google maps
+-Klik di website hotel, terus ke website si hotel
+
+Admin
+-Urang kurang ngerti hehe
+
+
+DATABASE
+1. user
+ - id (pk, AI, int)
+ - username (varchar)
+ - password (hash, varchar)
+ - name (varchar)
+ - gender (varchar)
+ - date (date)
+ - email (varchar)
+ - ktp (varchar)
+ - contact (varchar)
+ - address (text)
+ - poss (varchar)

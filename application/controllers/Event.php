@@ -83,8 +83,8 @@ class Event extends CI_Controller {
 			$this->load->view('form_login');
 		}else {
 			$data = array(
-				'username' = $this->input->post('username'),
-				'password' = $this->input->post('password')
+				'username' => $this->input->post('username'),
+				'password' => $this->input->post('password')
 			);
 
 			$result = $this->user_model->login($data);

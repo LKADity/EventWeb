@@ -24,7 +24,7 @@ class user_model extends CI_Model {
 	public function ticket_ordering($data,$amount)
 	{
 		for ($i=0; $i < $amount; $i++) { 
-			$this->db->insert('ticket',$data)
+			$this->db->insert('ticket',$data);
 		}
 	}
 
@@ -76,5 +76,6 @@ class user_model extends CI_Model {
 			# code...
 		}
 	}*/
+
 }
  ?>

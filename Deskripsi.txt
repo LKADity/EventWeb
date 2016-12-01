@@ -49,4 +49,9 @@ DATABASE
  - username
  - status (int)
  
- 
+5. datawebsite
+ - id (pk, AI, int)
+ - year (year) //tahun acara
+ - date (date) //tanggal hari H acara
+ - place (varchar) //tempat acara
+ - about us (text)

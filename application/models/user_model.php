@@ -21,6 +21,13 @@ class user_model extends CI_Model {
 		}
 	}
 
+	public function ticket_ordering($data,$amount)
+	{
+		for ($i=0; $i < $amount; $i++) { 
+			$this->db->insert('ticket',$data)
+		}
+	}
+
 	public function registration_performer($data){
 		$condition = "name = '".$data['name']."'";
 		$query = $this->db
@@ -54,5 +61,20 @@ class user_model extends CI_Model {
 			return FALSE;
 		}
 	}
+
+	/*public function login($data)
+	{
+		$condition = "username= '".$data['username']."'";
+		$query = $this->db
+				->select('*')
+				->from('user')
+				->where($condition)
+				->limit(1)
+				->get();
+
+		if () {
+			# code...
+		}
+	}*/
 }
  ?>

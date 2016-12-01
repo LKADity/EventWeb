@@ -70,5 +70,37 @@ class Event extends CI_Controller {
 			}
 		}
 	}
+
+	public function form_login() {
+		$this->load->view('form_login');
+	}
+
+	public function login_process() {
+		$this->form_validation->set_rules('username', 'Username', 'required');
+		$this->form_validation->set_rules('password', 'Password', 'required');
+
+		if ($this->form_validation->run() == FALSE) {
+			$this->load->view('form_login');
+		}else {
+			$data = array(
+				'username' = $this->input->post('username'),
+				'password' = $this->input->post('password')
+			);
+
+			$result = $this->user_model->login($data);
+			if ($result) {
+				$session_data = array(
+					'username' => $data['Username'],
+					'password' => $data['password']
+				);
+				$this->session->set_userdata('logged_in', $session_data);
+				$this->load->view('home');
+			}else {
+				$data['error_message'] = "Username atau Password salah";
+				$this->load->view('form_login', $data);
+			}
+		}
+	}
+
 }
  ?>

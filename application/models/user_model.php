@@ -62,8 +62,7 @@ class user_model extends CI_Model {
 		}
 	}
 
-	/*public function login($data)
-	{
+	public function login($data) {
 		$condition = "username= '".$data['username']."'";
 		$query = $this->db
 				->select('*')
@@ -72,10 +71,20 @@ class user_model extends CI_Model {
 				->limit(1)
 				->get();
 
-		if () {
-			# code...
+		if ($query->num_rows() == 1) {
+			$password = $data['password'];
+			if (password_verify($password, $query->row('password'))) {
+				$session_data['role'] = $query->row('role');
+				$this->session->set_userdata('logged_in', $session_data);
+
+				return TRUE;
+			}else {
+				return FALSE;
+			}
+		}else {
+			return FALSE;
 		}
-	}*/
+	}
 
 }
  ?>

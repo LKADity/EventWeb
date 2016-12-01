@@ -22,6 +22,7 @@ DATABASE
  - contact (varchar)
  - address (text)
  - poss (varchar)
+ - role (varchar)
 
 2. performer
  - id (pk, AI, int)

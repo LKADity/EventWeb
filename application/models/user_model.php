@@ -20,5 +20,39 @@ class user_model extends CI_Model {
 			return FALSE;
 		}
 	}
+
+	public function registration_performer($data){
+		$condition = "name = '".$data['name']."'";
+		$query = $this->db
+				->select('*')
+				->from('performer')
+				->where($condition)
+				->limit(1)
+				->get();
+
+		if ($query->num_rows() == 0) {
+			$this->db->insert('performer', $data);
+			return TRUE;
+		}else {
+			return FALSE;
+		}
+	}
+
+	public function registration_stand($data){
+		$condition = "name = '".$data['name']."'";
+		$query = $this->db
+				->select('*')
+				->from('stand')
+				->where($condition)
+				->limit(1)
+				->get();
+
+		if ($query->num_rows() == 0) {
+			$this->db->insert('stand', $data);
+			return TRUE;
+		}else {
+			return FALSE;
+		}
+	}
 }
  ?>

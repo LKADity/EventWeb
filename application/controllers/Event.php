@@ -21,7 +21,9 @@ class Event extends CI_Controller {
 
 	public function form_registration() {
 		//goto form_registration
+		$this->load->view('header');
 		$this->load->view('form_registration');
+		$this->load->view('footer');
 	}
 
 	public function registration_process() {

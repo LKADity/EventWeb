@@ -13,14 +13,17 @@ class Event extends CI_Controller {
 	}
 
 	public function index() {
+		//goto home
 		$this->load->view('home');
 	}
 
 	public function form_registration() {
+		//goto form_registration
 		$this->load->view('form_registration');
 	}
 
 	public function registration_process() {
+		//check if form already filled
 		$this->form_validation->set_rules('username', 'Username', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 		$this->form_validation->set_rules('passconf', 'Password Confirmation', 'required|matches[password]');
@@ -33,9 +36,13 @@ class Event extends CI_Controller {
 		$this->form_validation->set_rules('poss', 'Poss', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
+			//when there are error
 			$this->load->view('form_registration');
 		}else {
+			//hash password for safety
 			$password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
+
+			//check gender
 			if ($this->input->post('gender') == 1) {
 				$gender = 'L';
 			}elseif($this->input->post('gender') == 2) {
@@ -43,6 +50,8 @@ class Event extends CI_Controller {
 			}else {
 				$gender = 'O';
 			}
+
+			//insert form to $data
 			$data = array(
 				'username' => $this->input->post('username'),
 				'password' => $password,
@@ -57,14 +66,17 @@ class Event extends CI_Controller {
 				'role' => 'user'
 			);
 
+			//insert data to database
 			$result = $this->user_model->registration($data);
 
 			if ($result) {
+				//if success when inserting data to database
 				echo "Success";
 				die();
 				$data['message_display'] = 'Registration Success';
 				$this->load->view('login_form', $data);
 			}else {
+				//if failed when inserting data to database
 				$data['message_display'] = 'Registration Failed';
 				$this->load->view('form_registration', $data);
 			}
@@ -72,14 +84,17 @@ class Event extends CI_Controller {
 	}
 
 	public function form_login() {
+		//goto form login
 		$this->load->view('form_login');
 	}
 
 	public function login_process() {
+		//check if form already filled
 		$this->form_validation->set_rules('username', 'Username', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
+			//when there are error
 			$this->load->view('form_login');
 		}else {
 			$data = array(
@@ -87,8 +102,11 @@ class Event extends CI_Controller {
 				'password' => $this->input->post('password')
 			);
 
+			//check username and password
 			$result = $this->user_model->login($data);
 			if ($result) {
+				//when username and password confirmed
+				//insert username and password to session
 				$session_data = array(
 					'username' => $data['Username'],
 					'password' => $data['password']
@@ -96,6 +114,7 @@ class Event extends CI_Controller {
 				$this->session->set_userdata('logged_in', $session_data);
 				$this->load->view('home');
 			}else {
+				//when username or password wrong
 				$data['error_message'] = "Username atau Password salah";
 				$this->load->view('form_login', $data);
 			}

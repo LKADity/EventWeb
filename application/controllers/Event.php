@@ -87,7 +87,9 @@ class Event extends CI_Controller {
 
 	public function form_login() {
 		//goto form login
+		$this->load->view('header');
 		$this->load->view('form_login');
+		$this->load->view('footer');
 	}
 
 	public function login_process() {

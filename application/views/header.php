@@ -16,11 +16,11 @@
         		<span class="icon-bar"></span>
         		<span class="icon-bar"></span>
       			</button>
-    			<a href="#" class="navbar-brand">LOGO</a>
+    			<a href="<?php echo base_url().'index.php/event/index'; ?>" class="navbar-brand">LOGO</a>
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#">HOME</a></li>
+					<li><a href="<?php echo base_url().'index.php/event/index'; ?>">HOME</a></li>
 					<li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">INFORMATION</a>
 						<ul class="dropdown-menu">
 							<li><a href="#">ABOUT US</a></li>
@@ -37,7 +37,7 @@
 						</ul>
 					</li>
 					<li><a href="#">CONTACT</a></li>
-					<button type="button" class="btn btn-primary navbar-btn">LOGIN</button>
+					<a href="<?php echo base_url().'index.php/event/form_login'; ?>"><button type="button" class="btn btn-primary navbar-btn">LOGIN</button></a>
 				</ul>
 			</div>
 		</div>

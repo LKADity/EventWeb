@@ -14,7 +14,9 @@ class Event extends CI_Controller {
 
 	public function index() {
 		//goto home
+		$this->load->view('header');
 		$this->load->view('home');
+		$this->load->view('footer');
 	}
 
 	public function form_registration() {

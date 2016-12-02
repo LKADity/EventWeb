@@ -18,7 +18,7 @@
 </head>
 <body>
 	<div class="img-header container-fluid">
-		<h1>REGISTER USER</h1>
+		<h1>REGISTER</h1>
 	</div>
 
 	<div class="container" style="margin-bottom: 20px; background-color: #efefef; padding: 30px; padding-left: 70px; border-radius: 10px">

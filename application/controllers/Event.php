@@ -37,7 +37,7 @@ class Event extends CI_Controller {
 		$this->form_validation->set_rules('ktp', 'KTP', 'required');
 		$this->form_validation->set_rules('contact', 'Contact', 'required');
 		$this->form_validation->set_rules('address', 'Address', 'required');
-		$this->form_validation->set_rules('poss', 'Poss', 'required');
+		$this->form_validation->set_rules('poss', 'Code Post', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
 			//when there are error

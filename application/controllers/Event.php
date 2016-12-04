@@ -14,7 +14,6 @@ class Event extends CI_Controller {
 
 	//goto home
 	public function index() {
-
 		$this->load->view('header');
 		$this->load->view('home');
 		$this->load->view('footer');
@@ -76,10 +75,10 @@ class Event extends CI_Controller {
 
 			if ($result) {
 				//if success when inserting data to database
-				echo "Success";
-				die();
 				$data['message_display'] = 'Registration Success';
-				$this->load->view('login_form', $data);
+				$this->load->view('header');
+				$this->load->view('form_login',$data);
+				$this->load->view('footer');
 			}else {
 				//if failed when inserting data to database
 				$data['message_display'] = 'Registration Failed';
@@ -158,6 +157,7 @@ class Event extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	//logout
 	public function logout() {
 		$this->session->unset_userdata('logged_in');
 		$data['message_display'] = 'Successfully Logout';

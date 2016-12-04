@@ -106,7 +106,7 @@
 
 			<?php echo validation_errors(); ?>
 
-			<br><input type="button" class="btn btn-primary" value="REGISTER" style="font-size: 1.2em; font-weight: bolder;">
+			<br><input type="submit" class="btn btn-primary" value="REGISTER" style="font-size: 1.2em; font-weight: bolder;">
 		</form>
 	</div>
 

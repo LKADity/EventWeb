@@ -37,7 +37,13 @@
 						</ul>
 					</li>
 					<li><a href="#">CONTACT</a></li>
-					<a href="<?php echo base_url().'index.php/event/form_login'; ?>"><button type="button" class="btn btn-primary navbar-btn">LOGIN</button></a>
+					
+					<?php if (isset($_SESSION['logged_in'])) { ?>
+						<a href="<?php echo base_url().'index.php/event/logout'; ?>"><button type="button" class="btn btn-danger navbar-btn">LOGOUT</button></a>
+					<?php }else { ?>
+						<a href="<?php echo base_url().'index.php/event/form_login'; ?>"><button type="button" class="btn btn-primary navbar-btn">LOGIN</button></a>
+					<?php } ?>
+
 				</ul>
 			</div>
 		</div>

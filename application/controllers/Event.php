@@ -12,15 +12,16 @@ class Event extends CI_Controller {
 		$this->load->model('user_model');
 	}
 
+	//goto home
 	public function index() {
-		//goto home
+
 		$this->load->view('header');
 		$this->load->view('home');
 		$this->load->view('footer');
 	}
 
+	//goto form_registration
 	public function form_registration() {
-		//goto form_registration
 		$this->load->view('header');
 		$this->load->view('form_registration');
 		$this->load->view('footer');
@@ -87,8 +88,8 @@ class Event extends CI_Controller {
 		}
 	}
 
-	public function form_login() {
-		//goto form login
+	//goto form login
+	public function form_login() { 
 		$this->load->view('header');
 		$this->load->view('form_login');
 		$this->load->view('footer');
@@ -114,11 +115,13 @@ class Event extends CI_Controller {
 				//when username and password confirmed
 				//insert username and password to session
 				$session_data = array(
-					'username' => $data['Username'],
+					'username' => $data['username'],
 					'password' => $data['password']
 				);
 				$this->session->set_userdata('logged_in', $session_data);
+				$this->load->view('header');
 				$this->load->view('home');
+				$this->load->view('footer');
 			}else {
 				//when username or password wrong
 				$data['error_message'] = "Username atau Password salah";
@@ -127,5 +130,49 @@ class Event extends CI_Controller {
 		}
 	}
 
+	//goto information view
+	public function view_information() {
+		$this->load->view('header');
+		$this->load->view('information');
+		$this->load->view('footer');
+	}
+
+	//goto lineup view
+	public function view_lineup() {
+		$this->load->view('header');
+		$this->load->view('lineup');
+		$this->load->view('footer');
+	}
+
+	//goto ticket view
+	public function view_ticket() {
+		$this->load->view('header');
+		$this->load->view('ticket');
+		$this->load->view('footer');
+	}
+
+	//goto contact view
+	public function view_contact() {
+		$this->load->view('header');
+		$this->load->view('contact');
+		$this->load->view('footer');
+	}
+
+	public function logout() {
+		$this->session->unset_userdata('logged_in');
+		$data['message_display'] = 'Successfully Logout';
+		$this->load->view('header');
+		$this->load->view('home', $data);
+		$this->load->view('footer');
+	}
+
 }
  ?>
+
+
+
+
+
+
+
+

@@ -21,7 +21,7 @@ class User extends CI_Controller {
         }else {
             $this->load->view('header');
             $data['message_display'] = 'Please login first before order the ticket!';
-            $this->load->view('form_login');
+            $this->load->view('form_login', $data);
             $this->load->view('footer');
         }
     }

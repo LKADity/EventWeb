@@ -14,52 +14,58 @@ class User extends CI_Controller {
 
     //goto ticket ordering
     public function form_ticket_ordering() {
-        $this->load->view('header');
-        $this->load->view('form_ticket_ordering');
-        $this->load->view('footer');
+        if ($this->session->userdata('logged_in')) {
+            $this->load->view('header');
+            $this->load->view('form_ticket_ordering');
+            $this->load->view('footer');
+        }else {
+            $this->load->view('header');
+            $data['message_display'] = 'Please login first before order the ticket!';
+            $this->load->view('form_login');
+            $this->load->view('footer');
+        }
     }
 
     public function ticket_ordering() {
         //check if user already login or not
-        if (isset($this->session->userdata['logged_in'])) {
-            if ($this->session->userdata('logged_in')) {
-                //check if form already filled
-                $this->form_validation->set_rules('amount', 'jumlah');
+        if ($this->session->userdata('logged_in')) {
+            //check if form already filled
+            $this->form_validation->set_rules('amount', 'jumlah', 'required');
 
-                if ($this->form_validation->run() == FALSE) {
-                    //when there are errors reload page
-                    $this->load->view('form_ticket_ordering');
+            if ($this->form_validation->run() == FALSE) {
+                //when there are errors reload page
+                redirect('User/form_ticket_ordering', $data);
+            }else {
+                //total ticker ordered
+                $total = $this->input->post('amount');
+
+                //input form into $data
+                $data = array(
+                    'username' =>$this->session->userdata['logged_in']['username'], //username yang login
+
+                    'status' => 0
+                );
+
+                //insert data to database
+                $result = $this->user_model->ticket_ordering($data,$total);
+
+                if ($result) {
+                    //if success when inserting data to database
+                    echo "Success";
+                    $data['message_display'] = 'Ticket Ordering Success, Please wait until aproved by admin';
+                    redirect('Event/index', $data);
                 }else {
-                    //total ticker ordered
-                    $total = $this->input->post('amount');
-                    //input form into $data
-                    $data = array(
-                        'username' =>$this->session->userdata('username'), //username yang login
-                        'status' => 0
-                    );
-
-                    //insert data to database
-                    $result = $this->user_model->ticket_ordering($data);
-
-                    if ($result) {
-                        //if success when inserting data to database
-                        echo "Success";
-                        die();
-                        $data['message_display'] = 'Ticket Ordering Success, Please wait until aproved by admin';
-                        $this->load->view('home', $data);
-                    }else {
-                        //if failed when inserting data to database
-                        $data['message_display'] = 'Ticket Ordering Failed';
-                        $this->load->view('form_ticket_ordering', $data);
-                    }
+                    //if failed when inserting data to database
+                    $data['message_display'] = 'Ticket Ordering Failed';
+                    redirect('User/form_ticket_ordering', $data);
                 }
-            } else {
-                //if user not logged in
-                $this->load->view('header');
-                $data['message_display'] = 'Please login first before order the ticket!';
-                $this->load->view('form_login');
-                $this->load->view('footer');
             }
+        } else {
+            //if user not logged in
+            $this->load->view('header');
+            $data['message_display'] = 'Please login first before order the ticket!';
+            $this->load->view('form_login');
+            $this->load->view('footer');
         }
     }
 
@@ -88,8 +94,8 @@ class User extends CI_Controller {
     
             if ($this->form_validation->run() == FALSE) {
                 //when there are errors reload page
-                $this->load->view('form_registration_performer');
-            }else {
+                redirect('User/form_registration_performer');
+            } else {
                 //upload the pictures algorithm start here
                 for($i = 1; $i <  5; $i++) {
                     $no = 'photo'.$i;
@@ -100,19 +106,43 @@ class User extends CI_Controller {
                             'upload_path' => './assets/uploads/',
                             'allowed_types' => 'jpg|png|jpeg',
                             'overwrite' =>TRUE,
-                            'max_size' => '2048000',
-                            'max_height' => '768',
-                            'max_width' => '1024',
+                            'max_size' => '0',
+                            'max_height' => '0',
+                            'max_width' => '0',
                             'file_name' => $filename
                         );
                         $this->load->library('upload', $config);
-                        if ($this->upload->do_upload($no)) {
-                            echo "Success";
-                        }else {
-                            echo "failed";
+                        if ($no == 'photo1') {
+                            if ($this->upload->do_upload('photo1')) {
+                                echo "Success";
+                            }else {
+                                echo "failed";
+                                $error = array('error' => $this->upload->display_errors());
+                            }
+                        } else if($no == 'photo2') {
+                            if ($this->upload->do_upload('photo2')) {
+                                echo "Success";
+                            }else {
+                                echo "failed";
+                                $error = array('error' => $this->upload->display_errors());
+                            }
+                        } else if($no == 'photo3') {
+                            if ($this->upload->do_upload('photo3')) {
+                                echo "Success";
+                            }else {
+                                echo "failed";
+                                $error = array('error' => $this->upload->display_errors());
+                            }
+                        } else {
+                            if ($this->upload->do_upload('photo4')) {
+                                echo "Success";
+                            }else {
+                                echo "failed";
+                                $error = array('error' => $this->upload->display_errors());
+                            }
                         }
                     }else {
-                        $nama_file[] = '-';
+                        $name_file[] = '-';
                     }
                     //end here
                 }
@@ -122,11 +152,11 @@ class User extends CI_Controller {
                     'name' => $this->input->post('name'),
                     'description'=> $this->input->post('description'),
                     'pic1' => $name_file[0],
-                    'pic2' => $nama_file[1],
-                    'pic3' => $nama_file[2],
-                    'pic4' => $nama_file[3],
+                    'pic2' => $name_file[1],
+                    'pic3' => $name_file[2],
+                    'pic4' => $name_file[3],
                     'title' => "performer",
-                    'owner' =>$this->session->userdata('username'), //username yang login
+                    'owner' =>$this->session->userdata['logged_in']['username'], //username yang login
                     'status' => 0
                 );
 
@@ -136,13 +166,12 @@ class User extends CI_Controller {
                 if ($result) {
                     //if success when inserting data to database
                     echo "Success";
-                    die();
                     $data['message_display'] = 'Performer Registration Success, Please wait until aproved by admin';
-                    $this->load->view('home', $data);
-                }else {
+                    redirect('Event/index', $data);
+                } else {
                     //if failed when inserting data to database
                     $data['message_display'] = 'Performer Registration Failed';
-                    $this->load->view('form_registration_performer', $data);
+                    redirect('User/form_registration_performer', $data);
                 }
             }
         } else {
@@ -155,8 +184,7 @@ class User extends CI_Controller {
     }
 
     //goto stand registration
-    public function form_registration_stand()
-    {
+    public function form_registration_stand() {
         if ($this->session->userdata('logged_in')) {
             $this->load->view('header');
             $this->load->view('form_registration_stand');
@@ -169,52 +197,64 @@ class User extends CI_Controller {
         }
     }
 
-    public function registration_stand()
-    {
+    public function registration_stand() {
         //if (isset($this->session->userdata('logged_in'))) {
         if ($this->session->userdata('logged_in')) {
             //check if form already filled
             $this->form_validation->set_rules('name', 'Stand', 'required');
             $this->form_validation->set_rules('description', 'Deskripsi Stand', 'required');
-    
+            
+            
             if ($this->form_validation->run() == FALSE) {
                 //when there are errors reload page
-                $this->load->view('form_registration_stand');
+                redirect('User/form_registration_stand');
             }else {
                 //upload the pictures algorithm start here
                 for($i = 1; $i <  3; $i++) {
-                        $no = 'photo'.$i;
-                        if ($_FILES[$no]['name'] != NULL) {
-                            $filename = $this->session->userdata['logged_in']['username']."_".time()."_".$_FILES[$no]['name'];
-                            $name_file[] = $filename;
-                            $config = array(
-                                'upload_path' => './assets/uploads/',
-                                'allowed_types' => 'jpg|png|jpeg',
-                                'overwrite' =>TRUE,
-                                'max_size' => '2048000',
-                                'max_height' => '768',
-                                'max_width' => '1024',
-                                'file_name' => $filename
-                            );
-                            $this->load->library('upload', $config);
-                            if ($this->upload->do_upload($no)) {
+                    $no = 'photo'.$i;
+                    if ($_FILES[$no]['name'] != NULL) {
+                        $filename = $this->session->userdata['logged_in']['username']."_".time()."_".$_FILES[$no]['name'];
+                        $name_file[] = $filename;
+                        $config = array(
+                            'upload_path' => './assets/uploads/',
+                            'allowed_types' => 'jpg|png|jpeg',
+                            'overwrite' =>TRUE,
+                            'max_size' => '0',
+                            'max_height' => '0',
+                            'max_width' => '0',
+                            'file_name' => $filename
+                        );
+                        
+                        $this->load->library('upload', $config);
+
+                        if ($no == 'photo1') {
+                            if ($this->upload->do_upload('photo1')) {
                                 echo "Success";
                             }else {
                                 echo "failed";
+                                $error = array('error' => $this->upload->display_errors());
                             }
                         }else {
-                            $nama_file[] = '-';
+                            if ($this->upload->do_upload('photo2')) {
+                                echo "Success";
+                            }else {
+                                echo "failed";
+                                $error = array('error' => $this->upload->display_errors());
+                            }
                         }
+                    } else {
+                        $name_file[] = '-';
+                    }
                 }
                 //end here
-
+                
                 //input form into $data
                 $data = array(
                     'name' => $this->input->post('name'),
                     'description'=> $this->input->post('description'),
                     'pic1' => $name_file[0],
-                    'pic2' => $nama_file[1],
-                    'owner' =>$this->session->userdata('username'), //username yang login
+                    'pic2' => $name_file[1],
+                    'owner' =>$this->session->userdata['logged_in']['username'], //username yang login
                     'status' => 0
                 );
 
@@ -226,11 +266,11 @@ class User extends CI_Controller {
                     echo "Success";
                     die();
                     $data['message_display'] = 'Stand Registration Success, Please wait until aproved by admin';
-                    $this->load->view('home', $data);
+                    redirect('Event/index', $data);
                 }else {
                     //if failed when inserting data to database
                     $data['message_display'] = 'Stand Registration Failed';
-                    $this->load->view('form_registration_stand', $data);
+                    redirect('User/form_registration_stand', $data);
                 }
             }
         } else {

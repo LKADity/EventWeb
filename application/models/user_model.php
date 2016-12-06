@@ -21,10 +21,21 @@ class user_model extends CI_Model {
 		}
 	}
 
-	public function ticket_ordering($data,$amount)
+	public function ticket_ordering($data)
 	{
-		for ($i=0; $i < $amount; $i++) { 
-			$this->db->insert('ticket',$data);
+		$condition = "username = '".$data['username']."'";
+		$query = $this->db
+				->select('*')
+				->from('ticketing')
+				->where($condition)
+				->limit(1)
+				->get();
+
+		if ($query->num_rows() == 0) {
+			$this->db->insert('ticketing', $data);
+			return TRUE;
+		}else {
+			return FALSE;
 		}
 	}
 

@@ -22,7 +22,7 @@
 	</div>
 
 	<div class="container" style="margin-bottom: 20px; background-color: #efefef; padding: 30px; padding-left: 70px; border-radius: 10px">
-		<form class="form-horizontal" action="<?php echo base_url().'index.php/user/registration_performer'; ?>" method="post">
+		<form class="form-horizontal" action="<?php echo base_url().'index.php/user/registration_performer'; ?>" method="post" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="name" class="control-label col-sm-1">Performer Name</label>
 				<div class="col-sm-6">
@@ -33,19 +33,19 @@
 			<div class="form-group">
 				<label for="description" class="control-label col-sm-1">Description</label>
 				<div class="col-sm-6">
-					<textarea name="address" rows="3" class="form-control" placeholder="Description" style="resize: none"></textarea>
+					<textarea name="description" rows="3" class="form-control" placeholder="Description" style="resize: none"></textarea>
 				</div>
 			</div>
 			
 			<div class="form-group">
 				<label for="pic1" class="control-label col-sm-1">Pictures</label>
 				<div class="col-sm-3">
-					<input type="file" name="pic1"><br>
-					<input type="file" name="pic2">
+					<input type="file" name="photo1"><br>
+					<input type="file" name="photo2">
 				</div>
 				<div class="col-sm-3">
-					<input type="file" name="pic3"><br>
-					<input type="file" name="pic4">
+					<input type="file" name="photo3"><br>
+					<input type="file" name="photo4">
 				</div>
 			</div>
 

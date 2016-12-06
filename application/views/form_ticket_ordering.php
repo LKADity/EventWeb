@@ -22,7 +22,7 @@
 	</div>
 
 	<div class="container" style="margin-bottom: 20px; background-color: #efefef; padding: 30px; border-radius: 10px">
-		<form class="form-horizontal" action="<?php echo base_url().'index.php/user/form_ticket_ordering'; ?>" method="post">
+		<form class="form-horizontal" action="<?php echo base_url().'index.php/user/ticket_ordering'; ?>" method="post">
 			<table class="table">
 				<thead>
 					<tr style="font-size: 1.5em; font-style: bolder">
@@ -36,7 +36,7 @@
 					<tr>
 						<td>One Day Ticket</td>
 						<td>Rp 120.000</td>
-						<td><input type="number" class="form-control input-sm" style="max-width: 50px"></td>
+						<td><input type="number" name="amount" class="form-control input-sm" min="1" max="10" style="max-width: 50px"></td>
 					</tr>
 				</tbody>
 			</table>

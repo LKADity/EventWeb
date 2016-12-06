@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2016 at 02:07 PM
+-- Generation Time: Dec 06, 2016 at 05:07 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -50,13 +50,13 @@ INSERT INTO `datawebsite` (`id`, `year`, `date`, `place`, `about us`) VALUES
 CREATE TABLE `performer` (
   `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
-  `desciption` text NOT NULL,
+  `description` text NOT NULL,
   `pic1` varchar(255) NOT NULL,
   `pic2` varchar(255) NOT NULL,
   `pic3` varchar(255) NOT NULL,
   `pic4` varchar(255) NOT NULL,
   `title` varchar(50) NOT NULL,
-  `owner` int(11) NOT NULL,
+  `owner` varchar(50) NOT NULL,
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -69,7 +69,7 @@ CREATE TABLE `performer` (
 CREATE TABLE `stand` (
   `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
-  `desciption` text NOT NULL,
+  `description` text NOT NULL,
   `pic1` varchar(30) NOT NULL,
   `pic2` varchar(30) NOT NULL,
   `owner` varchar(30) NOT NULL,
@@ -85,8 +85,16 @@ CREATE TABLE `stand` (
 CREATE TABLE `ticketing` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
+  `amount` int(11) NOT NULL,
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ticketing`
+--
+
+INSERT INTO `ticketing` (`id`, `username`, `amount`, `status`) VALUES
+(4, 'aditya', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -114,7 +122,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `name`, `gender`, `date`, `email`, `ktp`, `contact`, `address`, `poss`, `role`) VALUES
-(1, 'aditya', '$2y$10$fhkgCZh/mIsV9O4wrJIcuuztLN7QlxLtwzDf5oC8R5lEklhwE/zXW', 'Adit', 'L', '1997-04-09', 'zzz@yahoo.com', '123345567789', 'LOL', 'Tes', 'Tes', 'user');
+(1, 'aditya', '$2y$10$fhkgCZh/mIsV9O4wrJIcuuztLN7QlxLtwzDf5oC8R5lEklhwE/zXW', 'Adit', 'L', '1997-04-09', 'zzz@yahoo.com', '123345567789', 'LOL', 'Tes', 'Tes', 'user'),
+(2, 'admin', 'admin', 'admin', 'L', '2016-12-01', 'admin@event.com', 'admin', 'admin', 'admin', 'admin', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -163,22 +172,22 @@ ALTER TABLE `datawebsite`
 -- AUTO_INCREMENT for table `performer`
 --
 ALTER TABLE `performer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `stand`
 --
 ALTER TABLE `stand`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `ticketing`
 --
 ALTER TABLE `ticketing`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

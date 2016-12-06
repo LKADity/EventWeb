@@ -33,7 +33,7 @@ DATABASE
  - pic3 (varchar)
  - pic4 (varchar)
  - title (varchar)
- - owner (fk, int)
+ - owner (fk, varchar)
  - status (int)
 
 3. stand
@@ -47,7 +47,8 @@ DATABASE
 
 4. ticketing
  - id (pk, AI, int)
- - username
+ - username (varchar)
+ - amount (int)
  - status (int)
  
 5. datawebsite

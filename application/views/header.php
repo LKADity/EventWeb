@@ -36,7 +36,7 @@
 						</ul>
 					</li>
 					<li><a href="#">LINEUP</a></li>
-					<li><a href="<?php echo base_url().'index.php/event/view_ticket'; ?>">TICKET</a></li>
+					<li><a href="<?php echo base_url().'index.php/user/form_ticket_ordering'; ?>">TICKET</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">REGISTRATION</a>
 						<ul class="dropdown-menu">
 							<li><a href="<?php echo base_url().'index.php/user/form_registration_performer'; ?>">PERFORMER</a></li>

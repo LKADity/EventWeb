@@ -21,7 +21,7 @@ class User extends CI_Controller {
 
     public function ticket_ordering() {
         //check if user already login or not
-        if (isset($this->load->session->userdata('logged_in'))) {
+        if (isset($this->session->userdata('logged_in'))) {
             //check if form already filled
             $this->form_validation->set_rules('amount', 'jumlah');
 
@@ -69,7 +69,7 @@ class User extends CI_Controller {
 
     public function registration_performer() {
         //check if user already login or not
-        if (isset($this->load->session->userdata('logged_in'))) {
+        if (isset($this->session->userdata('logged_in'))) {
             //check if form already filled
             $this->form_validation->set_rules('name', 'Performer', 'required');
             $this->form_validation->set_rules('description', 'Deskripsi Performer', 'required');
@@ -150,7 +150,7 @@ class User extends CI_Controller {
 
     public function registration_stand()
     {
-        if (isset($this->load->session->userdata('logged_in'))) {
+        if (isset($this->session->userdata('logged_in'))) {
             //check if form already filled
             $this->form_validation->set_rules('name', 'Stand', 'required');
             $this->form_validation->set_rules('description', 'Deskripsi Stand', 'required');

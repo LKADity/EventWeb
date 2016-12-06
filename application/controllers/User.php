@@ -21,7 +21,7 @@ class User extends CI_Controller {
 
     public function ticket_ordering() {
         //check if user already login or not
-        //if (isset($this->session->userdata('logged_in'))) {
+        if (isset($this->session->userdata['logged_in'])) {
         if ($this->session->userdata('logged_in')) {
             //check if form already filled
             $this->form_validation->set_rules('amount', 'jumlah');
@@ -59,6 +59,7 @@ class User extends CI_Controller {
             $data['message_display'] = 'Please login first before order the ticket!';
             $this->load->view('form_login');
             $this->load->view('footer');
+        }
         }
     }
 

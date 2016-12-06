@@ -129,10 +129,17 @@ class Event extends CI_Controller {
 		}
 	}
 
-	//goto information view
-	public function view_information() {
+	//goto about us view
+	public function view_about_us() {
 		$this->load->view('header');
-		$this->load->view('information');
+		$this->load->view('about_us');
+		$this->load->view('footer');
+	}
+
+	//goto venue view
+	public function view_venue() {
+		$this->load->view('header');
+		$this->load->view('venue');
 		$this->load->view('footer');
 	}
 

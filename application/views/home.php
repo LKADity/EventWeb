@@ -16,6 +16,7 @@
 			color: black;
 			font-weight: lighter;
 			margin-top: 10px;
+			font-size: 0.4em;
 		}
 	</style>
 </head>

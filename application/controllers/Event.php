@@ -150,13 +150,6 @@ class Event extends CI_Controller {
 		$this->load->view('footer');
 	}
 
-	//goto ticket view
-	public function view_ticket() {
-		$this->load->view('header');
-		$this->load->view('ticket');
-		$this->load->view('footer');
-	}
-
 	//goto contact view
 	public function view_contact() {
 		$this->load->view('header');

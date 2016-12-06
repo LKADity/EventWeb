@@ -3,8 +3,6 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
-	<link rel="stylesheet" href="<?php echo base_url().'assets/css/main.css'; ?>">
 	<style>
 		.nav.navbar-nav.navbar-right li a {
 			color: #337ab7;
@@ -38,7 +36,7 @@
 						</ul>
 					</li>
 					<li><a href="#">LINEUP</a></li>
-					<li><a href="#">TICKET</a></li>
+					<li><a href="<?php echo base_url().'index.php/event/view_ticket'; ?>">TICKET</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">REGISTRATION</a>
 						<ul class="dropdown-menu">
 							<li><a href="<?php echo base_url().'index.php/user/form_registration_performer'; ?>">PERFORMER</a></li>
@@ -54,6 +52,7 @@
 							<!--a href="<?php echo base_url().'index.php/event/form_login'; ?>"><button type="button" class="btn btn-primary navbar-btn">LOGIN</button></a-->
 							<a href="<?php echo base_url().'index.php/event/logout'; ?>" style='background-color: #337ab7; color: white'>LOGIN</a>
 						<?php } ?>
+					</li>
 				</ul>
 			</div>
 		</div>

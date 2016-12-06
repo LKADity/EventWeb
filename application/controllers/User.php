@@ -34,7 +34,9 @@ class User extends CI_Controller {
 
             if ($this->form_validation->run() == FALSE) {
                 //when there are errors reload page
-                redirect('User/form_ticket_ordering', $data);
+                $this->load->view('header');
+                $this->load->view('form_ticket_ordering', $data);
+                $this->load->view('footer');
             }else {
                 //total ticker ordered
                 $total = $this->input->post('amount');
@@ -52,19 +54,23 @@ class User extends CI_Controller {
                 if ($result) {
                     //if success when inserting data to database
                     echo "Success";
+                    $this->load->view('header');
                     $data['message_display'] = 'Ticket Ordering Success, Please wait until aproved by admin';
-                    redirect('Event/index', $data);
+                    $this->load->view('home', $data);
+                    $this->load->view('footer');
                 }else {
                     //if failed when inserting data to database
+                    $this->load->view('header');
                     $data['message_display'] = 'Ticket Ordering Failed';
-                    redirect('User/form_ticket_ordering', $data);
+                    $this->load->view('form_ticket_ordering', $data);
+                    $this->load->view('footer');
                 }
             }
         } else {
             //if user not logged in
             $this->load->view('header');
             $data['message_display'] = 'Please login first before order the ticket!';
-            $this->load->view('form_login');
+            $this->load->view('form_login', $data);
             $this->load->view('footer');
         }
     }
@@ -166,12 +172,16 @@ class User extends CI_Controller {
                 if ($result) {
                     //if success when inserting data to database
                     echo "Success";
+                    $this->load->view('header');
                     $data['message_display'] = 'Performer Registration Success, Please wait until aproved by admin';
-                    redirect('Event/index', $data);
+                    $this->load->view('home', $data);
+                    $this->load->view('footer');
                 } else {
                     //if failed when inserting data to database
+                    $this->load->view('header');
                     $data['message_display'] = 'Performer Registration Failed';
-                    redirect('User/form_registration_performer', $data);
+                    $this->load->view('form_registration_performer', $data);
+                    $this->load->view('footer');
                 }
             }
         } else {
@@ -265,12 +275,16 @@ class User extends CI_Controller {
                     //if success when inserting data to database
                     echo "Success";
                     die();
+                    $this->load->view('header');
                     $data['message_display'] = 'Stand Registration Success, Please wait until aproved by admin';
-                    redirect('Event/index', $data);
+                    $this->load->view('home', $data);
+                    $this->load->view('footer');
                 }else {
                     //if failed when inserting data to database
+                    $this->load->view('header');
                     $data['message_display'] = 'Stand Registration Failed';
-                    redirect('User/form_registration_stand', $data);
+                    $this->load->view('form_registration_stand', $data);
+                    $this->load->view('footer');
                 }
             }
         } else {

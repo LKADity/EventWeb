@@ -5,6 +5,15 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
 	<link rel="stylesheet" href="<?php echo base_url().'assets/css/main.css'; ?>">
+	<style>
+		.nav.navbar-nav.navbar-right li a {
+			color: #337ab7;
+		}
+		.nav.navbar-nav.navbar-right li a:hover {
+			color: #2d6a9f;
+			background-color: #e6e6e6;
+		}
+	</style>
 </head>
 <body>
 	<nav class="navbar navbar-default" style="margin-bottom: 0px">
@@ -21,7 +30,7 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="<?php echo base_url().'index.php/event/index'; ?>">HOME</a></li>
-					<li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">INFORMATION</a>
+					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">INFORMATION</a>
 						<ul class="dropdown-menu">
 							<li><a href="#">ABOUT US</a></li>
 							<li><a href="#">VENUES</a></li>
@@ -30,10 +39,10 @@
 					</li>
 					<li><a href="#">LINEUP</a></li>
 					<li><a href="#">TICKET</a></li>
-					<li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">REGISTRATION</a>
+					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">REGISTRATION</a>
 						<ul class="dropdown-menu">
-							<li><a href="#">PERFORMER</a></li>
-							<li><a href="#">STAND</a></li>
+							<li><a href="<?php echo base_url().'index.php/user/form_registration_performer'; ?>">PERFORMER</a></li>
+							<li><a href="<?php echo base_url().'index.php/user/form_registration_stand'; ?>">STAND</a></li>
 						</ul>
 					</li>
 					<li><a href="#">CONTACT</a></li>
@@ -51,3 +60,7 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script>
+		$('.dropdown-toggle').dropdown();
+	</script>
+</body>

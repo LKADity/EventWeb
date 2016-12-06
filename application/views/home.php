@@ -57,7 +57,7 @@
 	<br><br>
 	<div class="container" style="max-width: 840px; max-height: auto">
 		<div class="embed-responsive embed-responsive-16by9">
-			<center><iframe class="embed-responsive-item" src="https://www.youtube.com/embed/NIGuqK1j8T8" frameborder="0"></iframe></center>
+			<center><iframe class="embed-responsive-item" src="https://www.youtube.com/embed/NIGuqK1j8T8" frameborder="0" allowfulscreen></iframe></center>
 		</div>
 	</div>
 

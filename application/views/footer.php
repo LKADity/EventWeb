@@ -26,8 +26,5 @@
 			<br><p>Copyright 2016. Some rights reserved.</p>
 		</div></center>
 	</div>
-
-	<script src="assets/js/jquery-3.1.0.min.js"></script>
-	<script src="assets/js/bootstrap.js"></script>
 </body>
 </html>

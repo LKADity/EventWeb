@@ -45,7 +45,13 @@
 					<li><a href="<?php echo base_url().'index.php/event/view_contact'; ?>">CONTACT</a></li>
 					<li>
 						<?php if (isset($_SESSION['logged_in'])) { ?>
-							<a href="<?php echo base_url().'index.php/event/logout'; ?>" style='background-color: #ff3333; color: white'>LOGOUT</a>
+							<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span style="color: green"><?php echo $this->session->userdata['logged_in']['username'] ?></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="<?php echo base_url().'index.php/event/profile'; ?>">PROFILE</a></li>
+									<li><a href="<?php echo base_url().'index.php/event/logout'; ?>" style='background-color: #ff3333; color: white'>LOGOUT</a></li>
+								</ul>
+							</li>
+
 						<?php } else { ?>
 							<a href="<?php echo base_url().'index.php/event/form_login'; ?>" style='background-color: #337ab7; color: white'>LOGIN</a>
 						<?php } ?>

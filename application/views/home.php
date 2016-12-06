@@ -16,6 +16,7 @@
 			color: black;
 			font-weight: lighter;
 			margin-top: 10px;
+			font-size: 0.4em;
 		}
 	</style>
 </head>
@@ -62,8 +63,7 @@
 	</div>
 
 	<div class="container-fluid">
-		<center><h1>COUNTDOWN TO THE EVENT</h1></center>
-
+		<center><h3><b>COUNTDOWN TO THE EVENT</h3></b></center>
 		<center>
 			<div class="countdown" id="days_count"></div>
 			<div class="countdown" id="hours_count"></div>
@@ -73,9 +73,9 @@
 	</div>
 
 	<div class="container-fluid" style="background: url('<?php echo base_url().'assets/img/bg.jpg'; ?>'); background-size: 100% ;color: white; margin-top: 10px">
-		<center><h1>PRESENTED BY</h1></center>
-		<center><h1>OFFICIAL LIFESTYLE PARTNER</h1></center>
-		<center><h1>SUPPORTED BY</h1></center>
+		<center><h3>PRESENTED BY</h3></center>
+		<center><h3>OFFICIAL LIFESTYLE PARTNER</h3></center>
+		<center><h3>SUPPORTED BY</h3></center>
 	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

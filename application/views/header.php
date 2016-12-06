@@ -30,12 +30,11 @@
 					<li><a href="<?php echo base_url().'index.php/event/index'; ?>">HOME</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">INFORMATION</a>
 						<ul class="dropdown-menu">
-							<li><a href="#">ABOUT US</a></li>
-							<li><a href="#">VENUES</a></li>
-							<li><a href="#">HOTELS</a></li>
+							<li><a href="<?php echo base_url().'index.php/event/view_about_us'; ?>">ABOUT US</a></li>
+							<li><a href="<?php echo base_url().'index.php/event/view_venue'; ?>">VENUE</a></li>
 						</ul>
 					</li>
-					<li><a href="#">LINEUP</a></li>
+					<li><a href="<?php echo base_url().'index.php/event/view_lineup'; ?>">LINEUP</a></li>
 					<li><a href="<?php echo base_url().'index.php/user/form_ticket_ordering'; ?>">TICKET</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">REGISTRATION</a>
 						<ul class="dropdown-menu">
@@ -43,14 +42,12 @@
 							<li><a href="<?php echo base_url().'index.php/user/form_registration_stand'; ?>">STAND</a></li>
 						</ul>
 					</li>
-					<li><a href="#">CONTACT</a></li>
+					<li><a href="<?php echo base_url().'index.php/event/view_contact'; ?>">CONTACT</a></li>
 					<li>
 						<?php if (isset($_SESSION['logged_in'])) { ?>
-							<!--a href="<?php echo base_url().'index.php/event/logout'; ?>"><button type="button" class="btn btn-danger navbar-btn">LOGOUT</button></a-->
 							<a href="<?php echo base_url().'index.php/event/logout'; ?>" style='background-color: #ff3333; color: white'>LOGOUT</a>
 						<?php } else { ?>
-							<!--a href="<?php echo base_url().'index.php/event/form_login'; ?>"><button type="button" class="btn btn-primary navbar-btn">LOGIN</button></a-->
-							<a href="<?php echo base_url().'index.php/event/logout'; ?>" style='background-color: #337ab7; color: white'>LOGIN</a>
+							<a href="<?php echo base_url().'index.php/event/form_login'; ?>" style='background-color: #337ab7; color: white'>LOGIN</a>
 						<?php } ?>
 					</li>
 				</ul>

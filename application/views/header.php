@@ -46,13 +46,14 @@
 						</ul>
 					</li>
 					<li><a href="#">CONTACT</a></li>
-					
-					<?php if (isset($_SESSION['logged_in'])) { ?>
-						<a href="<?php echo base_url().'index.php/event/logout'; ?>"><button type="button" class="btn btn-danger navbar-btn">LOGOUT</button></a>
-					<?php }else { ?>
-						<a href="<?php echo base_url().'index.php/event/form_login'; ?>"><button type="button" class="btn btn-primary navbar-btn">LOGIN</button></a>
-					<?php } ?>
-
+					<li>
+						<?php if (isset($_SESSION['logged_in'])) { ?>
+							<!--a href="<?php echo base_url().'index.php/event/logout'; ?>"><button type="button" class="btn btn-danger navbar-btn">LOGOUT</button></a-->
+							<a href="<?php echo base_url().'index.php/event/logout'; ?>" style='background-color: #ff3333; color: white'>LOGOUT</a>
+						<?php } else { ?>
+							<!--a href="<?php echo base_url().'index.php/event/form_login'; ?>"><button type="button" class="btn btn-primary navbar-btn">LOGIN</button></a-->
+							<a href="<?php echo base_url().'index.php/event/logout'; ?>" style='background-color: #337ab7; color: white'>LOGIN</a>
+						<?php } ?>
 				</ul>
 			</div>
 		</div>

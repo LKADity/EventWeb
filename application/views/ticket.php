@@ -1,5 +1,5 @@
 <head>
-	<title>REGISTER STAND</title>
+	<title>TICKET</title>
 	<style>
 		.img-header {
 			background: url("<?php echo base_url().'assets/img/bg.jpg'; ?>");

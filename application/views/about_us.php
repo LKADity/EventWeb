@@ -1,5 +1,5 @@
 <head>
-	<title>ABOUT</title>
+	<title>ABOUT US</title>
 	<style>
 		.img-header {
 			background: url("<?php echo base_url().'assets/img/bg.jpg'; ?>");

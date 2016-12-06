@@ -21,7 +21,8 @@ class User extends CI_Controller {
 
     public function ticket_ordering() {
         //check if user already login or not
-        if (isset($this->session->userdata('logged_in'))) {
+        //if (isset($this->session->userdata('logged_in'))) {
+        if ($this->session->userdata('logged_in')) {
             //check if form already filled
             $this->form_validation->set_rules('amount', 'jumlah');
 
@@ -54,8 +55,10 @@ class User extends CI_Controller {
             }
         } else {
             //if user not logged in
+            $this->load->view('header');
             $data['message_display'] = 'Please login first before order the ticket!';
             $this->load->view('form_login');
+            $this->load->view('footer');
         }
     }
 
@@ -69,7 +72,8 @@ class User extends CI_Controller {
 
     public function registration_performer() {
         //check if user already login or not
-        if (isset($this->session->userdata('logged_in'))) {
+        //if (isset($this->session->userdata('logged_in'))) {
+        if ($this->session->userdata('logged_in')) {
             //check if form already filled
             $this->form_validation->set_rules('name', 'Performer', 'required');
             $this->form_validation->set_rules('description', 'Deskripsi Performer', 'required');
@@ -135,8 +139,10 @@ class User extends CI_Controller {
             }
         } else {
             //if user not logged in
+            $this->load->view('header');
             $data['message_display'] = 'Please login first before register the performer!';
             $this->load->view('form_login');
+            $this->load->view('footer');
         }
     }
 
@@ -150,7 +156,8 @@ class User extends CI_Controller {
 
     public function registration_stand()
     {
-        if (isset($this->session->userdata('logged_in'))) {
+        //if (isset($this->session->userdata('logged_in'))) {
+        if ($this->session->userdata('logged_in')) {
             //check if form already filled
             $this->form_validation->set_rules('name', 'Stand', 'required');
             $this->form_validation->set_rules('description', 'Deskripsi Stand', 'required');
@@ -213,8 +220,10 @@ class User extends CI_Controller {
             }
         } else {
             //if user not logged in
+            $this->load->view('header');
             $data['message_display'] = 'Please login first before register the stand!';
             $this->load->view('form_login');
+            $this->load->view('footer');
         }
     }
 }

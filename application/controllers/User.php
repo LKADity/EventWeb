@@ -22,53 +22,60 @@ class User extends CI_Controller {
     public function ticket_ordering() {
         //check if user already login or not
         if (isset($this->session->userdata['logged_in'])) {
-        if ($this->session->userdata('logged_in')) {
-            //check if form already filled
-            $this->form_validation->set_rules('amount', 'jumlah');
+            if ($this->session->userdata('logged_in')) {
+                //check if form already filled
+                $this->form_validation->set_rules('amount', 'jumlah');
 
-            if ($this->form_validation->run() == FALSE) {
-                //when there are errors reload page
-                $this->load->view('form_ticket_ordering');
-            }else {
-                //total ticker ordered
-                $total = $this->input->post('amount');
-                //input form into $data
-                $data = array(
-                    'username' =>$this->session->userdata('username'), //username yang login
-                    'status' => 0
-                );
-
-                //insert data to database
-                $result = $this->user_model->ticket_ordering($data);
-
-                if ($result) {
-                    //if success when inserting data to database
-                    echo "Success";
-                    die();
-                    $data['message_display'] = 'Ticket Ordering Success, Please wait until aproved by admin';
-                    $this->load->view('home', $data);
+                if ($this->form_validation->run() == FALSE) {
+                    //when there are errors reload page
+                    $this->load->view('form_ticket_ordering');
                 }else {
-                    //if failed when inserting data to database
-                    $data['message_display'] = 'Ticket Ordering Failed';
-                    $this->load->view('form_ticket_ordering', $data);
+                    //total ticker ordered
+                    $total = $this->input->post('amount');
+                    //input form into $data
+                    $data = array(
+                        'username' =>$this->session->userdata('username'), //username yang login
+                        'status' => 0
+                    );
+
+                    //insert data to database
+                    $result = $this->user_model->ticket_ordering($data);
+
+                    if ($result) {
+                        //if success when inserting data to database
+                        echo "Success";
+                        die();
+                        $data['message_display'] = 'Ticket Ordering Success, Please wait until aproved by admin';
+                        $this->load->view('home', $data);
+                    }else {
+                        //if failed when inserting data to database
+                        $data['message_display'] = 'Ticket Ordering Failed';
+                        $this->load->view('form_ticket_ordering', $data);
+                    }
                 }
+            } else {
+                //if user not logged in
+                $this->load->view('header');
+                $data['message_display'] = 'Please login first before order the ticket!';
+                $this->load->view('form_login');
+                $this->load->view('footer');
             }
-        } else {
-            //if user not logged in
-            $this->load->view('header');
-            $data['message_display'] = 'Please login first before order the ticket!';
-            $this->load->view('form_login');
-            $this->load->view('footer');
-        }
         }
     }
 
     //goto performer registration
     public function form_registration_performer() {
         // $this->load->view('test_upphoto'); //pengetesan upload foto
-        $this->load->view('header');
-        $this->load->view('form_registration_performer');
-        $this->load->view('footer');
+        if ($this->session->userdata('logged_in')) {
+            $this->load->view('header');
+            $this->load->view('form_registration_performer');
+            $this->load->view('footer');
+        }else {
+            $this->load->view('header');
+            $data['message_display'] = 'Please login first before order the ticket!';
+            $this->load->view('form_login');
+            $this->load->view('footer');
+        }
     }
 
     public function registration_performer() {
@@ -150,9 +157,16 @@ class User extends CI_Controller {
     //goto stand registration
     public function form_registration_stand()
     {
-        $this->load->view('header');
-        $this->load->view('form_registration_stand');
-        $this->load->view('footer');
+        if ($this->session->userdata('logged_in')) {
+            $this->load->view('header');
+            $this->load->view('form_registration_stand');
+            $this->load->view('footer');
+        }else {
+            $this->load->view('header');
+            $data['message_display'] = 'Please login first before order the ticket!';
+            $this->load->view('form_login');
+            $this->load->view('footer');
+        }
     }
 
     public function registration_stand()

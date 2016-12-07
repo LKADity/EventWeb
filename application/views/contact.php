@@ -22,7 +22,7 @@
 	</div>
 
 	<center style="font-size: 1.2em">
-	<h2><b>ANU PRODUCTION</b></h2>
+	<h2><b>Binary Production</b></h2>
 	<p>fX Sudirman Lt. 4</p>
 	<p>Jl. Jend Sudirman Pintu Satu Senayan</p>
 	<p>Jakarta Pusat</p>

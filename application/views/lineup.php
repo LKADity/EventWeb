@@ -38,29 +38,29 @@
 		<!--start iteration-->
 		<div class="col-sm-6">
 			<div class="square">
-				<img src="<?php echo base_url().'assets/img/facebook.png'; ?>" class="img-thumbnail">
-				<center><p style="color: white; font-size: 2.5em"><b>LALA</b></p></center>
+				<img src="<?php echo base_url().'assets/img/L1.jpg'; ?>" class="img-thumbnail">
+				<center><p style="color: white; font-size: 2.5em"><b>Marshmello</b></p></center>
 			</div>
 		</div>
 
 		<div class="col-sm-6">
 			<div class="square">
-				<img src="<?php echo base_url().'assets/img/facebook.png'; ?>" class="img-thumbnail">
-				<center><p style="color: white; font-size: 2.5em"><b>LALA</b></p></center>
+				<img src="<?php echo base_url().'assets/img/L2.jpg'; ?>" class="img-thumbnail">
+				<center><p style="color: white; font-size: 2.5em"><b>Coldplay</b></p></center>
 			</div>
 		</div>
 
 		<div class="col-sm-6">
 			<div class="square">
-				<img src="<?php echo base_url().'assets/img/facebook.png'; ?>" class="img-thumbnail">
-				<center><p style="color: white; font-size: 2.5em"><b>LALA</b></p></center>
+				<img src="<?php echo base_url().'assets/img/L3.jpg'; ?>" class="img-thumbnail">
+				<center><p style="color: white; font-size: 2.5em"><b>Tame Impala</b></p></center>
 			</div>
 		</div>
 
 		<div class="col-sm-6">
 			<div class="square">
-				<img src="<?php echo base_url().'assets/img/facebook.png'; ?>" class="img-thumbnail">
-				<center><p style="color: white; font-size: 2.5em"><b>LALA</b></p></center>
+				<img src="<?php echo base_url().'assets/img/L4.jpg'; ?>" class="img-thumbnail">
+				<center><p style="color: white; font-size: 2.5em"><b>Maliq & d'Essentials</b></p></center>
 			</div>
 		</div>
 		<!--end iteration-->

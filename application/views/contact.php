@@ -25,7 +25,7 @@
 	<h2><b>ANU PRODUCTION</b></h2>
 	<p>fX Sudirman Lt. 4</p>
 	<p>Jl. Jend Sudirman Pintu Satu Senayan</p>
-	<p>Jakarta Selatan</p>
+	<p>Jakarta Pusat</p>
 	<p>Tel: +6221-7002020</p>
 	<p>Email: info@anu.co.id</p>
 	</center>

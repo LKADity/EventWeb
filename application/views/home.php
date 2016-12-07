@@ -81,15 +81,15 @@
 	    <!-- Wrapper for slides -->
 	    <div class="carousel-inner" role="listbox">
 	        <div class="item active">
-	            <img src="<?php echo base_url().'assets/img/facebook.png'; ?>" alt="Pic1">
+	            <img src="<?php echo base_url().'assets/img/1.jpg'; ?>" alt="Pic1">
 	        </div>
 	
 	        <div class="item">
-	            <img src="<?php echo base_url().'assets/img/twitter.png'; ?>" alt="Pic2">
+	            <img src="<?php echo base_url().'assets/img/2.jpg'; ?>" alt="Pic2">
 	        </div>
 	
 	        <div class="item">
-	            <img src="<?php echo base_url().'assets/img/instagram.png'; ?>" alt="Pic3">
+	            <img src="<?php echo base_url().'assets/img/3.jpg'; ?>" alt="Pic3">
 	        </div>
 	    </div>
 	

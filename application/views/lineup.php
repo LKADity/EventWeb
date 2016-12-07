@@ -2,7 +2,7 @@
 	$performer = [];
 	foreach ($lineup as $val) {
 		if ($val->title == 'gueststar') {
-			$gueststar = $val;
+			$gueststar[] = $val;
 		}else {
 			$performer[] = $val;
 		}
@@ -47,14 +47,20 @@
 
 	<div class="container">
 		<!--start iteration-->
-		<div class="col-sm-6">
+		
 
-			<div class="square" style="background-color: red">
-				<img src="<?php echo base_url().'assets/uploads/'.$gueststar->pic1; ?>" class="img-thumbnail">
-				<center><p style="color: white; font-size: 2.5em"><b><?php echo $gueststar->name ?></b></p></center>
-
-			</div>
-		</div>
+		<?php 
+			foreach ($gueststar as $val) {
+		?>
+				<div class="col-sm-6">
+					<div class="square" style="background-color: red">
+						<img src="<?php echo base_url().'assets/uploads/'.$val->pic1; ?>" class="img-thumbnail">
+						<center><p style="color: white; font-size: 2.5em"><b><?php echo $val->name ?></b></p></center>
+					</div>
+				</div>
+		<?php
+			}
+		 ?>
 
 
 		<?php 

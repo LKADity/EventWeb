@@ -24,7 +24,7 @@
         		<span class="icon-bar"></span>
       			</button>
 				<a class="navbar-brand" href="<?php echo base_url().'index.php/event/index'; ?>">
-        <img src="<?php echo base_url().'assets/img/Logo.png'; ?>">
+        <img src="<?php echo base_url().'assets/img/Logo.png'; ?>" class="img-thumbnail">
       </a>
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

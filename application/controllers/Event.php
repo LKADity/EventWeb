@@ -119,8 +119,9 @@ class Event extends CI_Controller {
 					'password' => $data['password']
 				);
 				$this->session->set_userdata('logged_in', $session_data);
+				$data['message_display'] = "Successfully login";
 				$this->load->view('header');
-				$this->load->view('home');
+				$this->load->view('home', $data);
 				$this->load->view('footer');
 			}else {
 				//when username or password wrong

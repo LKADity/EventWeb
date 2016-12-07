@@ -58,7 +58,7 @@
 		<h1>PERFORMER</h1>
 	</div>
 
-	<?php if (isset($message_display)) { ?>
+	<?php if (isset($message_display) || isset($error_message)) { ?>
 		<div id="myModal" class="modal"> 
 		  <!-- Modal content -->
 			<div class="modal-content">

@@ -79,6 +79,7 @@
  	   </ol>
 	
 	    <!-- Wrapper for slides -->
+		<center>
 	    <div class="carousel-inner" role="listbox">
 	        <div class="item active">
 	            <img src="<?php echo base_url().'assets/img/1.jpg'; ?>" alt="Pic1">
@@ -92,6 +93,7 @@
 	            <img src="<?php echo base_url().'assets/img/3.jpg'; ?>" alt="Pic3">
 	        </div>
 	    </div>
+		</center>
 	
 	    <!-- Left and right controls -->
 	    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">

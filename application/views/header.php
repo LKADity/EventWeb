@@ -24,7 +24,7 @@
         		<span class="icon-bar"></span>
       			</button>
     			<div class="square">
-				<img src="<?php echo base_url().'assets/img/bg.jpg'; ?>" class="img-thumbnail">
+				<img src="<?php echo base_url().'assets/img/logo.png'; ?>" class="img-thumbnail">
 			</div>
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

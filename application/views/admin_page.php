@@ -43,7 +43,7 @@
 						<td>Approved</td>
 						<td><a href="#">Accept</a> <a href="#">Decline</a></td>
 					</tr>
-					<!--iteration ends-->
+					<!--iteration end-->
 				</tbody>
 			</table>
 

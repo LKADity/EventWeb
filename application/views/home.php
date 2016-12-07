@@ -79,19 +79,21 @@
  	   </ol>
 	
 	    <!-- Wrapper for slides -->
+		<center>
 	    <div class="carousel-inner" role="listbox">
 	        <div class="item active">
-	            <img src="<?php echo base_url().'assets/img/facebook.png'; ?>" alt="Pic1">
+	            <img src="<?php echo base_url().'assets/img/1.jpg'; ?>" alt="Pic1">
 	        </div>
 	
 	        <div class="item">
-	            <img src="<?php echo base_url().'assets/img/twitter.png'; ?>" alt="Pic2">
+	            <img src="<?php echo base_url().'assets/img/2.jpg'; ?>" alt="Pic2">
 	        </div>
 	
 	        <div class="item">
-	            <img src="<?php echo base_url().'assets/img/instagram.png'; ?>" alt="Pic3">
+	            <img src="<?php echo base_url().'assets/img/3.jpg'; ?>" alt="Pic3">
 	        </div>
 	    </div>
+		</center>
 	
 	    <!-- Left and right controls -->
 	    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -107,7 +109,7 @@
 	<br><br>
 	<div class="container" style="max-width: 840px; max-height: auto">
 		<div class="embed-responsive embed-responsive-16by9">
-			<center><iframe class="embed-responsive-item" src="https://www.youtube.com/embed/NIGuqK1j8T8" frameborder="0" allowfulscreen></iframe></center>
+			<center><iframe class="embed-responsive-item" src="https://youtu.be/uILXl6BCYJ4" frameborder="0" allowfulscreen></iframe></center>
 		</div>
 	</div>
 

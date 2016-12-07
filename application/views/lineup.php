@@ -48,11 +48,14 @@
 	<div class="container">
 		<!--start iteration-->
 		<div class="col-sm-6">
+
 			<div class="square" style="background-color: red">
 				<img src="<?php echo base_url().'assets/uploads/'.$gueststar->pic1; ?>" class="img-thumbnail">
 				<center><p style="color: white; font-size: 2.5em"><b><?php echo $gueststar->name ?></b></p></center>
+
 			</div>
 		</div>
+
 
 		<?php 
 			foreach ($performer as $val) {

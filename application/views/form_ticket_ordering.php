@@ -88,7 +88,9 @@
 				</tbody>
 			</table>
 
-			<?php echo validation_errors(); ?>
+			<div class="form-group">
+				<?php echo validation_errors(); ?>
+			</div>
 
 			<input type="submit" class="btn btn-primary" value="ORDER" style="font-size: 1.2em; font-weight: bolder;">
 		</form>

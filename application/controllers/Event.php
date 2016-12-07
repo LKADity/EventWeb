@@ -41,7 +41,9 @@ class Event extends CI_Controller {
 
 		if ($this->form_validation->run() == FALSE) {
 			//when there are error
+			$this->load->view('header');
 			$this->load->view('form_registration');
+			$this->load->view('footer');
 		}else {
 			//hash password for safety
 			$password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
@@ -82,7 +84,9 @@ class Event extends CI_Controller {
 			}else {
 				//if failed when inserting data to database
 				$data['message_display'] = 'Registration Failed';
+				$this->load->view('header');
 				$this->load->view('form_registration', $data);
+				$this->load->view('footer');
 			}
 		}
 	}
@@ -101,7 +105,9 @@ class Event extends CI_Controller {
 
 		if ($this->form_validation->run() == FALSE) {
 			//when there are error
+			$this->load->view('header');
 			$this->load->view('form_login');
+			$this->load->view('footer');
 		}else {
 			$data = array(
 				'username' => $this->input->post('username'),
@@ -126,7 +132,9 @@ class Event extends CI_Controller {
 			}else {
 				//when username or password wrong
 				$data['error_message'] = "Username atau Password salah";
+				$this->load->view('header');
 				$this->load->view('form_login', $data);
+				$this->load->view('footer');
 			}
 		}
 	}

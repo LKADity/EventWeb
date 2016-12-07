@@ -76,6 +76,9 @@
 			<div class="form-group">
 				<input type="password" class="form-control" name="password" placeholder="Password">
 			</div>
+			<div class="form-group">
+				<?php echo validation_errors(); ?>
+			</div>
 			<input type="submit" class="btn btn-primary" value="LOGIN" style="font-size: 1.2em; font-weight: bolder;">
 			<br><br>
 			<p>Dont have any account? <?php echo anchor('event/form_registration','Register'); ?></p>

@@ -85,8 +85,8 @@
 						<tr>
 							<td><?php echo $key->name ?></td>
 							<td><?php echo $key->description ?></td>
-							<td><?php echo $key->pic1 ?></td>
-							<td><?php echo $key->pic2 ?></td>
+							<td><a href="<?php echo base_url().'assets/uploads/'.$key->pic1; ?>" target="_blank"><?php echo $key->pic1 ?></a></td>
+							<td><a href="<?php echo base_url().'assets/uploads/'.$key->pic2; ?>" target="_blank"><?php echo $key->pic2 ?></a></td>
 							<td><?php echo $key->owner ?></td>
 							<td>
 								<?php 
@@ -132,10 +132,10 @@
 						<tr>
 							<td><?php echo $key->name ?></td>
 							<td><?php echo $key->description ?></td>
-							<td><?php echo $key->pic1 ?></td>
-							<td><?php echo $key->pic2 ?></td>
-							<td><?php echo $key->pic3 ?></td>
-							<td><?php echo $key->pic4 ?></td>
+							<td><a href="<?php echo base_url().'assets/uploads/'.$key->pic1; ?>" target="_blank"><?php echo $key->pic1 ?></a></td>
+							<td><a href="<?php echo base_url().'assets/uploads/'.$key->pic2; ?>" target="_blank"><?php echo $key->pic2 ?></a></td>
+							<td><a href="<?php echo base_url().'assets/uploads/'.$key->pic3; ?>" target="_blank"><?php echo $key->pic3 ?></a></td>
+							<td><a href="<?php echo base_url().'assets/uploads/'.$key->pic4; ?>" target="_blank"><?php echo $key->pic4 ?></a></td>
 							<td><?php echo $key->title ?></td>
 							<td><?php echo $key->owner ?></td>
 							<td>

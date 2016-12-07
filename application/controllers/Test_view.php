@@ -38,6 +38,12 @@ class Test_view extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	public function admin_page() {
+		$this->load->view('header');
+		$this->load->view('admin_page');
+		$this->load->view('footer');
+	}
+
 	public function testFoto()
 	{
 		$this->load->view('test_upphoto');

@@ -23,7 +23,7 @@
         		<span class="icon-bar"></span>
         		<span class="icon-bar"></span>
       			</button>
-    			<a href="<?php echo base_url().'index.php/event/index'; ?>" class="navbar-brand">LOGO</a>
+    			<img src="<?php echo base_url().'assets/img/bg.jpg'; ?>" class="img-thumbnail">
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">

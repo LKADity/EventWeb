@@ -109,7 +109,7 @@
 	<br><br>
 	<div class="container" style="max-width: 840px; max-height: auto">
 		<div class="embed-responsive embed-responsive-16by9">
-			<center><iframe class="embed-responsive-item" src="<iframe width="854" height="480" src="https://www.youtube.com/embed/uILXl6BCYJ4" frameborder="0" allowfullscreen></iframe>" frameborder="0" allowfulscreen></iframe></center>
+			<center><iframe class="embed-responsive-item" src="https://youtu.be/uILXl6BCYJ4" frameborder="0" allowfulscreen></iframe></center>
 		</div>
 	</div>
 

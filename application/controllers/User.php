@@ -21,7 +21,7 @@ class User extends CI_Controller {
         }else {
             $this->load->view('header');
             $data['message_display'] = 'Please login first before order the ticket!';
-            $this->load->view('form_login');
+            $this->load->view('form_login', $data);
             $this->load->view('footer');
         }
     }
@@ -35,7 +35,7 @@ class User extends CI_Controller {
             if ($this->form_validation->run() == FALSE) {
                 //when there are errors reload page
                 $this->load->view('header');
-                $this->load->view('form_ticket_ordering', $data);
+                $this->load->view('form_ticket_ordering');
                 $this->load->view('footer');
             }else {
                 //total ticker ordered
@@ -78,14 +78,14 @@ class User extends CI_Controller {
     //goto performer registration
     public function form_registration_performer() {
         // $this->load->view('test_upphoto'); //pengetesan upload foto
-        if ($this->session->userdata('logged_in')) {
+        if (isset($this->session->userdata['logged_in'])) {
             $this->load->view('header');
             $this->load->view('form_registration_performer');
             $this->load->view('footer');
         }else {
             $this->load->view('header');
-            $data['message_display'] = 'Please login first before order the ticket!';
-            $this->load->view('form_login');
+            $data['message_display'] = 'Please login first before order registration performer!';
+            $this->load->view('form_login',$data);
             $this->load->view('footer');
         }
     }
@@ -188,7 +188,7 @@ class User extends CI_Controller {
             //if user not logged in
             $this->load->view('header');
             $data['message_display'] = 'Please login first before register the performer!';
-            $this->load->view('form_login');
+            $this->load->view('form_login', $data);
             $this->load->view('footer');
         }
     }
@@ -202,7 +202,7 @@ class User extends CI_Controller {
         }else {
             $this->load->view('header');
             $data['message_display'] = 'Please login first before order the ticket!';
-            $this->load->view('form_login');
+            $this->load->view('form_login',$data);
             $this->load->view('footer');
         }
     }
@@ -291,7 +291,7 @@ class User extends CI_Controller {
             //if user not logged in
             $this->load->view('header');
             $data['message_display'] = 'Please login first before register the stand!';
-            $this->load->view('form_login');
+            $this->load->view('form_login',$data);
             $this->load->view('footer');
         }
     }

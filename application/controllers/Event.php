@@ -110,6 +110,7 @@ class Event extends CI_Controller {
 
 			//check username and password
 			$result = $this->user_model->login($data);
+			
 			if ($result) {
 				//when username and password confirmed
 				//insert username and password to session

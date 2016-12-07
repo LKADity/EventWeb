@@ -86,7 +86,7 @@ class user_model extends CI_Model {
 			$password = $data['password'];
 			if (password_verify($password, $query->row('password'))) {
 				$session_data['role'] = $query->row('role');
-				$this->session->set_userdata('logged_in', $session_data);
+				$this->session->set_userdata('role', $session_data);
 
 				return TRUE;
 			}else {

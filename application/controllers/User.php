@@ -44,7 +44,7 @@ class User extends CI_Controller {
                 //input form into $data
                 $data = array(
                     'username' =>$this->session->userdata['logged_in']['username'], //username yang login
-
+                    'amount' => $this->input->post('amount'),
                     'status' => 0
                 );
 
@@ -120,28 +120,27 @@ class User extends CI_Controller {
                         $this->load->library('upload', $config);
                         if ($no == 'photo1') {
                             if ($this->upload->do_upload('photo1')) {
-                                echo "Success";
                             }else {
                                 echo "failed";
                                 $error = array('error' => $this->upload->display_errors());
                             }
                         } else if($no == 'photo2') {
                             if ($this->upload->do_upload('photo2')) {
-                                echo "Success";
+                                
                             }else {
                                 echo "failed";
                                 $error = array('error' => $this->upload->display_errors());
                             }
                         } else if($no == 'photo3') {
                             if ($this->upload->do_upload('photo3')) {
-                                echo "Success";
+                                
                             }else {
                                 echo "failed";
                                 $error = array('error' => $this->upload->display_errors());
                             }
                         } else {
                             if ($this->upload->do_upload('photo4')) {
-                                echo "Success";
+                                
                             }else {
                                 echo "failed";
                                 $error = array('error' => $this->upload->display_errors());
@@ -171,7 +170,7 @@ class User extends CI_Controller {
 
                 if ($result) {
                     //if success when inserting data to database
-                    echo "Success";
+                    
                     $this->load->view('header');
                     $data['message_display'] = 'Performer Registration Success, Please wait until aproved by admin';
                     $this->load->view('home', $data);
@@ -239,14 +238,14 @@ class User extends CI_Controller {
 
                         if ($no == 'photo1') {
                             if ($this->upload->do_upload('photo1')) {
-                                echo "Success";
+                                
                             }else {
                                 echo "failed";
                                 $error = array('error' => $this->upload->display_errors());
                             }
                         }else {
                             if ($this->upload->do_upload('photo2')) {
-                                echo "Success";
+                                
                             }else {
                                 echo "failed";
                                 $error = array('error' => $this->upload->display_errors());
@@ -273,8 +272,7 @@ class User extends CI_Controller {
 
                 if ($result) {
                     //if success when inserting data to database
-                    echo "Success";
-                    die();
+                    
                     $this->load->view('header');
                     $data['message_display'] = 'Stand Registration Success, Please wait until aproved by admin';
                     $this->load->view('home', $data);
@@ -294,6 +292,13 @@ class User extends CI_Controller {
             $this->load->view('form_login',$data);
             $this->load->view('footer');
         }
+    }
+
+    public function profile($username) {
+        $data;
+        $this->load->view('header');
+        $this->load->view('profile', $data);
+        $this->load->view('footer');
     }
 }
  ?>

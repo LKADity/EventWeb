@@ -1,3 +1,14 @@
+<?php 
+	$performer = [];
+	foreach ($lineup as $val) {
+		if ($val->title == 'gueststar') {
+			$gueststar = $val;
+		}else {
+			$performer[] = $val;
+		}
+	}
+	
+ ?>
 <head>
 	<title>LINEUP</title>
 	<style>
@@ -37,32 +48,25 @@
 	<div class="container">
 		<!--start iteration-->
 		<div class="col-sm-6">
-			<div class="square">
-				<img src="<?php echo base_url().'assets/img/facebook.png'; ?>" class="img-thumbnail">
-				<center><p style="color: white; font-size: 2.5em"><b>LALA</b></p></center>
+			<div class="square" style="background-color: red">
+				<img src="<?php echo base_url().'assets/uploads/'.$gueststar->pic1; ?>" class="img-thumbnail">
+				<center><p style="color: white; font-size: 2.5em"><b><?php echo $gueststar->name ?></b></p></center>
 			</div>
 		</div>
 
-		<div class="col-sm-6">
-			<div class="square">
-				<img src="<?php echo base_url().'assets/img/facebook.png'; ?>" class="img-thumbnail">
-				<center><p style="color: white; font-size: 2.5em"><b>LALA</b></p></center>
-			</div>
-		</div>
-
-		<div class="col-sm-6">
-			<div class="square">
-				<img src="<?php echo base_url().'assets/img/facebook.png'; ?>" class="img-thumbnail">
-				<center><p style="color: white; font-size: 2.5em"><b>LALA</b></p></center>
-			</div>
-		</div>
-
-		<div class="col-sm-6">
-			<div class="square">
-				<img src="<?php echo base_url().'assets/img/facebook.png'; ?>" class="img-thumbnail">
-				<center><p style="color: white; font-size: 2.5em"><b>LALA</b></p></center>
-			</div>
-		</div>
+		<?php 
+			foreach ($performer as $val) {
+		?>
+				<div class="col-sm-6">
+					<div class="square" style="background-color: blue">
+						<img src="<?php echo base_url().'assets/uploads/'.$val->pic1; ?>" class="img-thumbnail">
+						<center><p style="color: white; font-size: 2.5em"><b><?php echo $val->name ?></b></p></center>
+					</div>
+				</div>
+		<?php
+			}
+		 ?>
+		
 		<!--end iteration-->
 	</div>
 

@@ -49,14 +49,10 @@ class Admin extends CI_Controller {
 				$update = $this->admin_model->acc_performer($id);
 				if ($update) {
 					$data['message_display'] = 'acc performer success';
-					$this->load->view('header');
-					$this->load->view('admin_page', $data);
-					$this->load->view('footer');
+					redirect('/Admin/admin_page');
 				}else {
 					$data['message_display'] = 'acc performer failed';
-					$this->load->view('header');
-					$this->load->view('admin_page', $data);
-					$this->load->view('footer');
+					redirect('/Admin/admin_page');
 				}
 			}else {
 				$$this->load->view('header');
@@ -78,14 +74,10 @@ class Admin extends CI_Controller {
 				$update = $this->admin_model->acc_stand($id);
 				if ($update) {
 					$data['message_display'] = 'acc stand success';
-					$this->load->view('header');
-					$this->load->view('admin_page', $data);
-					$this->load->view('footer');
+					redirect('/Admin/admin_page');
 				}else {
 					$data['message_display'] = 'acc stand failed';
-					$this->load->view('header');
-					$this->load->view('admin_page', $data);
-					$this->load->view('footer');
+					redirect('/Admin/admin_page');
 				}
 			}else {
 				$$this->load->view('header');
@@ -107,14 +99,10 @@ class Admin extends CI_Controller {
 				$update = $this->admin_model->acc_ticket($id);
 				if ($update) {
 					$data['message_display'] = 'acc ticket success';
-					$this->load->view('header');
-					$this->load->view('admin_page', $data);
-					$this->load->view('footer');
+					redirect('/Admin/admin_page');
 				}else {
 					$data['message_display'] = 'acc ticket failed';
-					$this->load->view('header');
-					$this->load->view('admin_page', $data);
-					$this->load->view('footer');
+					redirect('/Admin/admin_page');
 				}
 			}else {
 				$$this->load->view('header');
@@ -136,14 +124,10 @@ class Admin extends CI_Controller {
 				$update = $this->admin_model->dec_performer($id);
 				if ($update) {
 					$data['message_display'] = 'dec performer success';
-					$this->load->view('header');
-					$this->load->view('admin_page', $data);
-					$this->load->view('footer');
+					redirect('/Admin/admin_page');
 				}else {
 					$data['message_display'] = 'dec performer failed';
-					$this->load->view('header');
-					$this->load->view('admin_page', $data);
-					$this->load->view('footer');
+					redirect('/Admin/admin_page');
 				}
 			}else {
 				$$this->load->view('header');
@@ -165,14 +149,10 @@ class Admin extends CI_Controller {
 				$update = $this->admin_model->dec_stand($id);
 				if ($update) {
 					$data['message_display'] = 'dec stand success';
-					$this->load->view('header');
-					$this->load->view('admin_page', $data);
-					$this->load->view('footer');
+					redirect('/Admin/admin_page');
 				}else {
 					$data['message_display'] = 'dec stand failed';
-					$this->load->view('header');
-					$this->load->view('admin_page', $data);
-					$this->load->view('footer');
+					redirect('/Admin/admin_page');
 				}
 			}else {
 				$$this->load->view('header');
@@ -194,14 +174,10 @@ class Admin extends CI_Controller {
 				$update = $this->admin_model->dec_ticket($id);
 				if ($update) {
 					$data['message_display'] = 'dec ticket success';
-					$this->load->view('header');
-					$this->load->view('admin_page', $data);
-					$this->load->view('footer');
+					redirect('/Admin/admin_page');
 				}else {
 					$data['message_display'] = 'dec ticket failed';
-					$this->load->view('header');
-					$this->load->view('admin_page', $data);
-					$this->load->view('footer');
+					redirect('/Admin/admin_page');
 				}
 			}else {
 				$$this->load->view('header');
@@ -223,14 +199,10 @@ class Admin extends CI_Controller {
 				$update = $this->admin_model->del_user($id);
 				if ($update) {
 					$data['message_display'] = 'delete user success';
-					$this->load->view('header');
-					$this->load->view('admin_page', $data);
-					$this->load->view('footer');
+					redirect('/Admin/admin_page');
 				}else {
 					$data['message_display'] = 'delete user failed';
-					$this->load->view('header');
-					$this->load->view('admin_page', $data);
-					$this->load->view('footer');
+					redirect('/Admin/admin_page');
 				}
 			}else {
 				$$this->load->view('header');

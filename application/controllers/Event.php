@@ -147,8 +147,9 @@ class Event extends CI_Controller {
 
 	//goto lineup view
 	public function view_lineup() {
+		$data['lineup'] = $this->user_model->select_lineUp()->result();
 		$this->load->view('header');
-		$this->load->view('lineup');
+		$this->load->view('lineup',$data);
 		$this->load->view('footer');
 	}
 

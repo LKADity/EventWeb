@@ -5,9 +5,11 @@
 class admin_model extends CI_Model {
 	
 	public function select_user() {
+		$condition = "role <> 'admin'";
 		$query = $this->db
 				->select('id, username, name, gender, date, email, ktp, contact, address, poss')
 				->from('user')		
+				->where($condition)
 				->get();
 
 		return $query;
@@ -39,7 +41,7 @@ class admin_model extends CI_Model {
 		$condition = 'status <> 2';
 		$query = $this->db
 				->select('id, username, amount, status')
-				->from('ticket')
+				->from('ticketing')
 				->where($condition)
 				->get();
 
@@ -49,7 +51,7 @@ class admin_model extends CI_Model {
 	public function acc_performer($id) {
 		$data['status'] = '1';
 		$query = $this->db
-			->where('id', $id);
+			->where('id', $id)
 			->update('performer', $data);
 
 		return $query;
@@ -58,17 +60,18 @@ class admin_model extends CI_Model {
 	public function acc_stand($id) {
 		$data['status'] = '1';
 		$query = $this->db
-			->where('id', $id);
+			->where('id', $id)
 			->update('stand', $data);
 
 		return $query;
 	}
 
 	public function acc_ticket($id) {
+
 		$data['status'] = '1';
 		$query = $this->db
-			->where('id', $id);
-			->update('ticket', $data);
+			->where('id', $id)
+			->update('ticketing', $data);
 
 		return $query;
 	}
@@ -76,26 +79,26 @@ class admin_model extends CI_Model {
 	public function dec_performer($id) {
 		$data['status'] = '2';
 		$query = $this->db
-			->where('id', $id);
+			->where('id', $id)
 			->update('performer', $data);
 
 		return $query;
 	}
 
 	public function dec_stand($id) {
-		$data['status'] = '1';
+		$data['status'] = '2';
 		$query = $this->db
-			->where('id', $id);
+			->where('id', $id)
 			->update('stand', $data);
 
 		return $query;
 	}
 
 	public function dec_ticket($id) {
-		$data['status'] = '1';
+		$data['status'] = '2';
 		$query = $this->db
-			->where('id', $id);
-			->update('ticket', $data);
+			->where('id', $id)
+			->update('ticketing', $data);
 
 		return $query;
 	}

@@ -45,9 +45,26 @@
 					<li><a href="<?php echo base_url().'index.php/event/view_contact'; ?>">CONTACT</a></li>
 					<li>
 						<?php if (isset($_SESSION['logged_in'])) { ?>
-							<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span style="color: green"><?php echo $this->session->userdata['logged_in']['username'] ?></span></a>
+							<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span style="color: green">
+							<?php 
+								if ($_SESSION['role']['role'] == 'admin') {
+									echo "ADMIN";
+								}else {
+									echo $this->session->userdata['logged_in']['username'];
+								}
+							 ?></span></a>
 								<ul class="dropdown-menu">
-									<li><a href="<?php echo base_url().'index.php/event/profile'; ?>">PROFILE</a></li>
+									<li>
+										<?php 
+											if ($_SESSION['role']['role'] == 'admin') { ?>
+												<a href="<?php echo base_url().'index.php/admin/admin_page'; ?>">ADMIN</a>	
+										<?php
+											}else { ?>
+												<a href="<?php echo base_url().'index.php/user/profile'; ?>">PROFILE</a>
+										<?php
+											}
+										 ?>
+									</li>
 									<li><a href="<?php echo base_url().'index.php/event/logout'; ?>" style='background-color: #ff3333; color: white'>LOGOUT</a></li>
 								</ul>
 							</li>

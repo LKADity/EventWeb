@@ -97,5 +97,14 @@ class user_model extends CI_Model {
 		}
 	}
 
+	public function select_lineUp() {
+		$query = $this->db
+				->select('*')
+				->from('performer')
+				->get();
+
+		return $query;
+	}
+
 }
  ?>

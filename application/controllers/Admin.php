@@ -18,6 +18,12 @@ class Admin extends CI_Controller {
 			if ($this->session->userdata['role']['role'] == 'admin') {
 				$user = $this->admin_model->select_user()->result();
 				$performer = $this->admin_model->select_performer()->result();
+				$stand = $this->admin_model->select_stand()->result();
+				$data = array(
+					'user' => $user,
+					'performer' => $performer,
+					'stand' => $stand
+				);
 				$this->load->view('header');
 				$this->load->view('admin_page', $data);
 				$this->load->view('footer');

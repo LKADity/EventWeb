@@ -21,13 +21,20 @@ class admin_model extends CI_Model {
 				->where($condition)
 				->get();
 
-		echo "<pre>";
-		print_r($query->result());
-		echo "</pre>";
-		die();
+		return $query;
+	}
+
+	public function select_stand() {
+		$condition = 'status <> 2';
+		$query = $this->db
+				->select('id, name, description, pic1, pic2, owner, status')
+				->from('stand')
+				->where($condition)
+				->get();
 
 		return $query;
 	}
+
 
 }
  ?>

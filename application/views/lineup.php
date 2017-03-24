@@ -75,8 +75,14 @@
 		<?php
 			}
 		 ?>
+
 		
 		<!--end iteration-->
+	</div>
+
+	<div class="container">
+		<p style="color: red">*red = Gueststar</p>
+		<p style="color: blue">*blue = performer</p>
 	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

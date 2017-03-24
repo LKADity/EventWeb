@@ -141,20 +141,27 @@
 		setInterval(function () {
 		    var current_date = new Date().getTime();
 		    var seconds_left = (target_date - current_date) / 1000;
- 
-		    days = parseInt(seconds_left / 86400);
-    		seconds_left = seconds_left % 86400;
-    	 
-    		hours = parseInt(seconds_left / 3600);
-    		seconds_left = seconds_left % 3600;
-     
-    		minutes = parseInt(seconds_left / 60);
-    		seconds = parseInt(seconds_left % 60);
 
-    		days_count.innerHTML = days+"<p>Days</p>";
-    		hours_count.innerHTML = hours+"<p>Hours</p>";
-    		minutes_count.innerHTML = minutes+"<p>Minutes</p>";
-    		seconds_count.innerHTML = seconds+"<p>Seconds</p>";
+ 			if (seconds_left >= 0) {
+			    days = parseInt(seconds_left / 86400);
+	    		seconds_left = seconds_left % 86400;
+	    	 
+	    		hours = parseInt(seconds_left / 3600);
+	    		seconds_left = seconds_left % 3600;
+	     
+	    		minutes = parseInt(seconds_left / 60);
+	    		seconds = parseInt(seconds_left % 60);
+
+	    		days_count.innerHTML = days+"<p>Days</p>";
+	    		hours_count.innerHTML = hours+"<p>Hours</p>";
+	    		minutes_count.innerHTML = minutes+"<p>Minutes</p>";
+	    		seconds_count.innerHTML = seconds+"<p>Seconds</p>";
+    		}else {
+    			days_count.innerHTML = "0<p>Days</p>";
+	    		hours_count.innerHTML = "0<p>Hours</p>";
+	    		minutes_count.innerHTML = "0<p>Minutes</p>";
+	    		seconds_count.innerHTML = "0<p>Seconds</p>";
+    		}
 		}, 1000);
 	</script>
 </body>

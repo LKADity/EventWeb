@@ -44,7 +44,7 @@ class User extends CI_Controller {
                 //input form into $data
                 $data = array(
                     'username' =>$this->session->userdata['logged_in']['username'], //username yang login
-                    'amount' => $this->input->post('amount'),
+                    'amount' => $total,
                     'status' => 0
                 );
 
@@ -53,9 +53,21 @@ class User extends CI_Controller {
 
                 if ($result) {
                     //if success when inserting data to database
-                    echo "Success";
                     $this->load->view('header');
-                    $data['message_display'] = 'Ticket Ordering Success, Please wait until aproved by admin';
+                    $harga = $total * 120000;
+
+                    $data['message_display'] = 
+                        '
+                            Ticket Ordering Success, Please wait until aproved by admin
+                            <p>Harga yang harus dibayarkan Rp'.$harga.',00</p>
+                            <p><b>Daftar Rekening</b><br>
+                            BNI : 12133545253646<br>
+                            BCA : 13432545253646<br>
+                            BRI : 134325452536456<br>
+                            Mandiri : 13432545253636<br>
+                            AN : CYKA BLYAT
+                            </p>
+                        ';
                     $this->load->view('home', $data);
                     $this->load->view('footer');
                 }else {

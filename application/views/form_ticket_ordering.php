@@ -96,6 +96,16 @@
 		</form>
 	</div>
 
+	<div class="container">
+		<p><b>Daftar Rekening</b><br>
+		BNI : 12133545253646<br>
+		BCA : 13432545253646<br>
+		BRI : 134325452536456<br>
+		Mandiri : 13432545253636<br>
+		AN : CYKA BLYAT
+		</p>
+	</div>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>
